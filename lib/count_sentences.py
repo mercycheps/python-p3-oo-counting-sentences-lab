@@ -2,7 +2,7 @@ import re
 
 class MyString:
     def __init__(self, value=""):
-        self._value = ""
+        self._value = value
 
     @property
     def value(self):
@@ -16,7 +16,7 @@ class MyString:
             print("The value must be a string.")
 
     def is_sentence(self):
-        return self._value.endswith(".")
+        return self.value.endswith(".")
 
     def is_question(self):
         return self._value.endswith("?")
@@ -30,3 +30,5 @@ class MyString:
         
         sentences = re.split(r'[.!?]+', self._value)
         return len([s for s in sentences if s.strip()])
+
+print(MyString("Hello World").is_sentence())
